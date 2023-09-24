@@ -19,7 +19,7 @@ CREATE TABLE book (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-CREATE TABLE book_loan (
+CREATE TABLE loan (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id INT NOT NULL,
   book_id INT NOT NULL,
@@ -29,85 +29,50 @@ CREATE TABLE book_loan (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-INSERT INTO book(
-    title,
-    description,
-    author,
-    year,
-    available,
-    cover
-  )
-VALUES (
-    'The Great Gatsby',
-    'A novel by F. Scott Fitzgerald',
-    'F. Scott Fitzgerald',
-    1925,
-    true,
-    'https://example.com/gatsby.jpg'
-  ),
-  (
-    'To Kill a Mockingbird',
-    'A novel by Harper Lee',
-    'Harper Lee',
-    1960,
-    true,
-    'https://example.com/mockingbird.jpg'
-  ),
-  (
-    '1984',
-    'A novel by George Orwell',
-    'George Orwell',
-    1949,
-    true,
-    'https://example.com/1984.jpg'
-  ),
-  (
-    'Pride and Prejudice',
-    'A novel by Jane Austen',
-    'Jane Austen',
-    1813,
-    true,
-    'https://example.com/pride.jpg'
-  );
+INSERT INTO `book` (`id`, `title`, `description`, `author`, `year`, `available`, `cover`, `created_at`, `updated_at`) VALUES (1, 'Mi Portada de libro', 'A novel by F. Scott Fitzgerald', 'F. Scott Fitzgerald', 1925, 0, 'https://edit.org/images/cat/portadas-libros-big-2019101610.jpg', '2023-09-24 16:49:06', '2023-09-24 23:28:11');
+INSERT INTO `book` (`id`, `title`, `description`, `author`, `year`, `available`, `cover`, `created_at`, `updated_at`) VALUES (2, 'Dejemos Huella', 'A novel by Harper Lee', 'Pedro Muñoz', 1960, 0, 'https://upload.wikimedia.org/wikipedia/commons/0/05/Portada-libro.jpg', '2023-09-24 16:49:06', '2023-09-24 23:28:59');
+INSERT INTO `book` (`id`, `title`, `description`, `author`, `year`, `available`, `cover`, `created_at`, `updated_at`) VALUES (3, 'Hasta que el verano se acabe', 'A novel by George Orwell', 'Connor Hamilton', 1949, 1, 'https://marketplace.canva.com/EAFI171fL0M/1/0/1003w/canva-portada-de-libro-de-novela-ilustrado-color-azul-aqua-PQeWaiiK0aA.jpg', '2023-09-24 16:49:06', '2023-09-24 23:29:40');
+INSERT INTO `book` (`id`, `title`, `description`, `author`, `year`, `available`, `cover`, `created_at`, `updated_at`) VALUES (4, 'El camino de la Guerrera', 'A novel by Jane Austen', 'Encarni Herrera', 1813, 1, 'https://www.letraminuscula.com/wp-content/uploads/Portada-55x85-EL-CAMINO-DE-LA-GUERRERA-663x1024.jpg', '2023-09-24 16:49:06', '2023-09-24 23:30:27');
+
+-- password 1234567
 INSERT INTO user (password, name, last_name, rol, email)
 VALUES (
-    'password123',
+    '$2a$12$qCk7qBWoi5wC9yPMxmzTxOLTOLIIOAgbTHjr8xCbTqGsGyIPAn.lO',
     'John',
     'Doe',
     'administrador',
     'john.doe@example.com'
   ),
   (
-    'securepass',
+    '$2a$12$qCk7qBWoi5wC9yPMxmzTxOLTOLIIOAgbTHjr8xCbTqGsGyIPAn.lO',
     'Alice',
     'Smith',
     'usuario',
     'alice.smith@example.com'
   ),
   (
-    'mysecret',
+    '$2a$12$qCk7qBWoi5wC9yPMxmzTxOLTOLIIOAgbTHjr8xCbTqGsGyIPAn.lO',
     'Bob',
     'Johnson',
     'usuario',
     'bob.johnson@example.com'
   ),
   (
-    'password456',
+    '$2a$12$qCk7qBWoi5wC9yPMxmzTxOLTOLIIOAgbTHjr8xCbTqGsGyIPAn.lO',
     'Eva',
     'Brown',
     'usuario',
     'eva.brown@example.com'
   ),
   (
-    'pass1234',
+    '$2a$12$qCk7qBWoi5wC9yPMxmzTxOLTOLIIOAgbTHjr8xCbTqGsGyIPAn.lO',
     'Michael',
     'Davis',
     'administrador',
     'michael.davis@example.com'
   );
-INSERT INTO book_loan (user_id, book_id, status)
+INSERT INTO loan (user_id, book_id, status)
 VALUES (1, 1, 'prestado'),
-  (2, 2, 'prestado'),
+  (, 2, 'prestado'),
   (3, 3, 'disponible'),
-  (4, 4, 'disponible'),
-  (5, 5, 'prestado');
+  (4, 4, 'disponible');

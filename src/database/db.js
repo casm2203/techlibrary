@@ -9,4 +9,4 @@ export const pool = createPool({
 });
 
 
-//docker run --name task -e MYSQL_ROOT_PASSWORD=colombiaprr -e MYSQL_DATEBASE=task -p 3306:3306  -d mysql
+//docker run --name techlibrary -e MYSQL_ROOT_PASSWORD=colombiaprr -e MYSQL_DATEBASE=techlibrary -p 3306:3306  -d mysql

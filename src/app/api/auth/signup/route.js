@@ -29,14 +29,14 @@ export async function POST(request) {
 
     //Insertar en la base de datos
     const [result] = await pool.query(
-      "INSERT INTO user(name, last_name, rol, email, password, created_at, updated_at) VALUES (?,?,?,?,DATE_FORMAT(CONVERT_TZ(NOW(), 'UTC', 'America/Bogota'), '%Y-%m-%d %H:%i:%s'),DATE_FORMAT(CONVERT_TZ(NOW(), 'UTC', 'America/Bogota'), '%Y-%m-%d %H:%i:%s'))",
+      "INSERT INTO user(name, last_name, rol, email, password, created_at, updated_at) VALUES (?,?,?,?,?,DATE_FORMAT(CONVERT_TZ(NOW(), 'UTC', 'America/Bogota'), '%Y-%m-%d %H:%i:%s'),DATE_FORMAT(CONVERT_TZ(NOW(), 'UTC', 'America/Bogota'), '%Y-%m-%d %H:%i:%s'))",
       [name, last_name, rol, email, passwordEncrypted]
     );
 
     return NextResponse.json(
       {
         id: result.insertId,
-        data: { fullname, email },
+        data: { name, email },
         message: "Usuario creado",
       },
       { status: 200 }
