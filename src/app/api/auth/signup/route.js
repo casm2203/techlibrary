@@ -13,13 +13,13 @@ export async function POST(request) {
     //Validaciones
     if (!password || password.length < 6) {
       return NextResponse.json(
-        { message: "La contraseña es muy corta" },
+        { message: "La contraseña es muy corta. Ingrese mínimo 6 carácteres." },
         { status: 409 }
       );
     }
     if (resultEmail.length !== 0) {
       return NextResponse.json(
-        { message: "El usuario ya existe" },
+        { message: "El correo ingresado ya está en uso." },
         { status: 409 }
       );
     }

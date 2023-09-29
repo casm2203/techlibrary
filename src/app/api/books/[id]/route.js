@@ -40,7 +40,7 @@ export async function PUT(request, { params }) {
       { status: 200 }
     );
   } catch (error) {
-    return NextResponse.json({ message: error.message });
+    return NextResponse.json({ message: error.message },{ status: 500 });
   }
 }
 
