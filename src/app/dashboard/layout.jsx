@@ -190,7 +190,7 @@ export default function AppHome({ children }) {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={() => signOut()}>Cerrar sesión</MenuItem>
+                <MenuItem onClick={() =>  signOut({ redirect: false }).then(() => router.push("/"))}>Cerrar sesión</MenuItem>
               </Menu>
             </Box>
           )}
@@ -238,10 +238,9 @@ export default function AppHome({ children }) {
         <Divider />
         <List>
           <ListItemButton
-            onClick={() => {
-              // signOut({ callbackUrl: window.location.origin });
-              console.log(window.location.origin)
-            }}
+            onClick={() =>
+              signOut({ redirect: false }).then(() => router.push("/"))
+            }
           >
             <ListItemIcon>
               <ExitToAppIcon />
