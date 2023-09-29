@@ -18,7 +18,7 @@ export async function POST(request) {
     const { title, description, author, cover, year } = await request.json();
 
     const [result] = await pool.query(
-      "INSERT INTO book (title, description, author, cover, year, created_at, updated_at) VALUES (?,?,?,?,DATE_FORMAT(CONVERT_TZ(NOW(), 'UTC', 'America/Bogota'), '%Y-%m-%d %H:%i:%s'),DATE_FORMAT(CONVERT_TZ(NOW(), 'UTC', 'America/Bogota'), '%Y-%m-%d %H:%i:%s'))",
+      "INSERT INTO book (title, description, author, cover, year, created_at, updated_at) VALUES (?,?,?,?,?,DATE_FORMAT(CONVERT_TZ(NOW(), 'UTC', 'America/Bogota'), '%Y-%m-%d %H:%i:%s'),DATE_FORMAT(CONVERT_TZ(NOW(), 'UTC', 'America/Bogota'), '%Y-%m-%d %H:%i:%s'))",
       [title, description, author, cover, year]
     );
 
@@ -27,6 +27,6 @@ export async function POST(request) {
       { status: 200 }
     );
   } catch (error) {
-    return NextResponse.json({ message: error.message });
+    return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }

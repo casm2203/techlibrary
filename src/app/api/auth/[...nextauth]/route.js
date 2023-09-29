@@ -18,14 +18,14 @@ const handler = NextAuth({
           [credentials?.email]
         );
 
-        if (!result[0]) throw new Error("Invalid credentials");
+        if (!result[0]) throw new Error("Usuario o contraseña incorrecta.");
 
         const passwordMatch = await bcrypt.compare(
           credentials.password,
           result[0].password
         );
 
-        if (!passwordMatch) throw new Error("Invalid credentials");
+        if (!passwordMatch) throw new Error("Usuario o contraseña incorrecta.");
 
         console.log(result[0]);
 
@@ -34,7 +34,7 @@ const handler = NextAuth({
     }),
   ],
   pages: {
-    signIn: "/login",
+    signIn: "/signin",
   },
   session: {
     strategy: "jwt",
