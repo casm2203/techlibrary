@@ -73,6 +73,6 @@ VALUES (
   );
 INSERT INTO loan (user_id, book_id, status)
 VALUES (1, 1, 'prestado'),
-  (, 2, 'prestado'),
+  (1, 2, 'prestado'),
   (3, 3, 'disponible'),
   (4, 4, 'disponible');
