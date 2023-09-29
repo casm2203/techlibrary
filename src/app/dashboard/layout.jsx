@@ -238,10 +238,9 @@ export default function AppHome({ children }) {
         <Divider />
         <List>
           <ListItemButton
-            onClick={(e) => {
-              signOut({
-                callbackUrl: `${window.location.origin}`,
-              });
+            onClick={() => {
+              // signOut({ callbackUrl: window.location.origin });
+              console.log(window.location.origin)
             }}
           >
             <ListItemIcon>

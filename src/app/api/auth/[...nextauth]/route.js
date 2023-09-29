@@ -27,8 +27,6 @@ const handler = NextAuth({
 
         if (!passwordMatch) throw new Error("Usuario o contraseña incorrecta.");
 
-        console.log(result[0]);
-
         return result[0];
       },
     }),
