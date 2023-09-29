@@ -231,7 +231,7 @@ export default function AppHome({ children }) {
         </List>
         <Divider />
         <List>
-          <ListItemButton onClick={() => signOut()}>
+          <ListItemButton onClick={() =>{ signOut(); router.push("/dashboard/books")}}>
             <ListItemIcon>
               <ExitToAppIcon />
             </ListItemIcon>
